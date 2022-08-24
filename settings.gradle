@@ -1,0 +1,2 @@
+rootProject.name = "market_ceo"
+include ':app'

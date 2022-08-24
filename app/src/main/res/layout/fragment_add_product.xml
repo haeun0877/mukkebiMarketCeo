@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFFFFF"
+    tools:context=".main.AddProductFragment">
+
+    <TextView
+        android:id="@+id/tv_add_product_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="상품추가"
+        android:textStyle="bold"
+        android:textColor="@color/main_black"
+        android:textSize="36dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:layout_marginTop="30dp"
+        android:overScrollMode="never"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_add_product_title"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#f7f8fe"
+            android:padding="20dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_image"
+                android:layout_width="match_parent"
+                android:layout_height="275dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/iv_add_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/img_empty_list"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/tv_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="카테고리"
+                android:textColor="@color/main_black"
+                android:textSize="24dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/cv_image"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/box_round_5_whie_black"
+                app:layout_constraintTop_toBottomOf="@+id/tv_category"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="카테고리 명"
+                    android:textColor="@color/main_black"
+                    android:textSize="24dp"
+                    android:singleLine="true"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/iv_dropdown"/>
+
+                <ImageView
+                    android:id="@+id/iv_dropdown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:src="@drawable/down_icon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv_product_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="상품명"
+                android:textColor="@color/main_black"
+                android:textSize="24dp"
+                android:layout_marginTop="18dp"
+                app:layout_constraintTop_toBottomOf="@+id/cl_category"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <EditText
+                android:id="@+id/et_product_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/main_black"
+                android:hint="상품명"
+                android:textSize="24dp"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textColorHint="#888888"
+                android:background="@drawable/box_round_5_whie_black"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/tv_product_name"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_product_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="기준가격"
+                android:textColor="@color/main_black"
+                android:textSize="24dp"
+                android:layout_marginTop="18dp"
+                app:layout_constraintTop_toBottomOf="@+id/et_product_name"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <EditText
+                android:id="@+id/et_product_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/main_black"
+                android:hint="0,000"
+                android:textSize="24dp"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textColorHint="#888888"
+                android:inputType="number"
+                android:background="@drawable/box_round_5_whie_black"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/tv_product_price"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_origin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="원산지"
+                android:textColor="@color/main_black"
+                android:textSize="24dp"
+                android:layout_marginTop="18dp"
+                app:layout_constraintTop_toBottomOf="@+id/et_product_price"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <EditText
+                android:id="@+id/et_origin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/main_black"
+                android:hint="국내산"
+                android:textSize="24dp"
+                android:singleLine="true"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textColorHint="#888888"
+                android:background="@drawable/box_round_5_whie_black"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/tv_origin"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:src="@drawable/plus_icon"
+                android:background="@drawable/box_round_5_white"
+                android:backgroundTint="#8c93a8"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
+                app:layout_constraintTop_toTopOf="@+id/et_origin"
+                app:layout_constraintEnd_toEndOf="@id/et_origin"
+                app:layout_constraintBottom_toBottomOf="@+id/et_origin"/>
+
+            <TextView
+                android:id="@+id/tv_add_product"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="상품 추가"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:textSize="24dp"
+                android:padding="16dp"
+                android:background="@drawable/box_round_10_0537c8"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@+id/et_origin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

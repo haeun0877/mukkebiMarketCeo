@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f7f8fe"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".main.MainFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/main_blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="신규 주문 받는 중"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:padding="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:track="@drawable/switch_track"
+            android:thumb="@drawable/switch_thumb"
+            app:layout_constraintStart_toEndOf="@+id/tv_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_ceo_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/cl_top"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_ceo_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="최하은"
+                android:textColor="@color/main_black"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 사장님"
+                android:textColor="#8c93a8"
+                android:textStyle="bold"
+                android:textSize="24dp"
+                app:layout_constraintStart_toEndOf="@id/tv_ceo_name"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_store_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="천호옛날순대국밥"
+                android:textSize="18dp"
+                android:textColor="#8c93a8"
+                app:layout_constraintTop_toBottomOf="@+id/tv_ceo_name"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/tv_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="로그아웃"
+            android:textSize="16dp"
+            android:textColor="#FFFFFF"
+            android:paddingLeft="18dp"
+            android:paddingRight="18dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:background="@drawable/box_round_15_0537c8"/>
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_new_order"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/box_round_5_0537c8"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/ll_ceo_info"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="신규주문건수"
+            android:textSize="18dp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100 건"
+            android:textSize="18dp"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/box_round_5_white"
+        android:layout_marginTop="10dp"
+        android:padding="26dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/cl_new_order"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/tv_sum_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="금일 누적 금액"
+            android:textSize="16dp"
+            android:textColor="#8c93a8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_sum_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="578,340"
+            android:textSize="36dp"
+            android:textColor="@color/main_blue"
+            android:textStyle="bold"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_sum_title"
+            app:layout_constraintEnd_toStartOf="@+id/tv_won"/>
+
+        <TextView
+            android:id="@+id/tv_won"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="원"
+            android:textColor="@color/main_black"
+            android:textStyle="bold"
+            android:textSize="36dp"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@+id/tv_sum_price"
+            app:layout_constraintTop_toBottomOf="@+id/tv_sum_title"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_all_order_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="전체 실적 보기"
+            android:background="@drawable/box_round_15_0537c8"
+            android:textColor="#FFFFFF"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:textSize="16dp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_sum_price"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_goods_manage"
+        android:layout_width="0dp"
+        android:layout_height="160dp"
+        android:background="@drawable/box_round_5_white"
+        android:text="상품관리"
+        android:textSize="24dp"
+        android:textColor="@color/main_blue"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintEnd_toStartOf="@+id/tv_phone"
+        app:layout_constraintTop_toBottomOf="@+id/cl_price"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_phone"
+        android:layout_width="0dp"
+        android:layout_height="160dp"
+        android:background="@drawable/box_round_5_white"
+        android:text="고객센터\n전화하기"
+        android:textSize="24dp"
+        android:textColor="@color/main_blue"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@+id/cl_price"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_goods_manage"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
