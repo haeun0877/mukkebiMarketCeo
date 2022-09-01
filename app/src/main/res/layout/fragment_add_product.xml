@@ -56,6 +56,17 @@
                     android:scaleType="centerCrop"
                     android:src="@drawable/img_empty_list"/>
 
+                <TextView
+                    android:id="@+id/tv_empty_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="터치하여 이미지를 등록해주세요"
+                    android:textSize="24dp"
+                    android:textColor="#8c93a8"
+                    android:gravity="center"
+                    android:padding="44dp"
+                    android:background="#efefef"/>
+
             </androidx.cardview.widget.CardView>
 
             <TextView

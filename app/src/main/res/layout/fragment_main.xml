@@ -11,10 +11,28 @@
         android:id="@+id/cl_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/main_blue"
+        android:background="#363940"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_title_off"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="우측 버튼을 눌러 시작하기"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:visibility="visible"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/main_switch"/>
 
         <TextView
             android:id="@+id/tv_title"
@@ -24,21 +42,22 @@
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:textSize="18dp"
-            android:padding="30dp"
+            android:visibility="invisible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
         <Switch
+            android:id="@+id/main_switch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:track="@drawable/switch_track"
             android:thumb="@drawable/switch_thumb"
-            app:layout_constraintStart_toEndOf="@+id/tv_title"
+            app:layout_constraintStart_toEndOf="@+id/tv_title_off"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

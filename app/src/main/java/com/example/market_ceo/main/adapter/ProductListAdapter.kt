@@ -7,9 +7,11 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Switch
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.market_ceo.R
+import com.example.market_ceo.main.dialog.SoldOutDialog
 import com.example.market_ceo.main.item.ProductItem
 import com.example.market_ceo.main.utils.ItemTouchHelperCallback
 import java.util.*
@@ -24,6 +26,7 @@ class ProductListAdapter (private val context: Context) : RecyclerView.Adapter<P
         private val tvName = view.findViewById<TextView>(R.id.tv_product_name)
         private val tvPrice = view.findViewById<TextView>(R.id.tv_price)
         private val ivMove = view.findViewById<ImageView>(R.id.iv_move)
+        private val switchSoldOut = view.findViewById<Switch>(R.id.switch_sold_out)
 
         @SuppressLint("SetTextI18n", "ClickableViewAccessibility")
         fun bind(item: ProductItem){
@@ -36,6 +39,15 @@ class ProductListAdapter (private val context: Context) : RecyclerView.Adapter<P
                 }
                 return@setOnTouchListener false
             }
+
+            switchSoldOut.setOnCheckedChangeListener { _, isChecked ->
+                if(isChecked){
+                    SoldOutDialog(context).soldOutDialogShow()
+                }else{
+                    SoldOutDialog(context).soldOutDialogShow()
+                }
+            }
+
         }
     }
 

@@ -1,5 +1,6 @@
 package com.example.market_ceo.main
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -39,6 +40,18 @@ class MainFragment : Fragment() {
         binding.tvAllOrderList.setOnClickListener(mClick)
         binding.tvLogout.setOnClickListener(mClick)
         binding.tvGoodsManage.setOnClickListener(mClick)
+
+        binding.mainSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if(isChecked){
+                binding.clTop.setBackgroundColor(Color.parseColor("#0537c8"))
+                binding.tvTitle.visibility=View.VISIBLE
+                binding.tvTitleOff.visibility=View.INVISIBLE
+            }else{
+                binding.clTop.setBackgroundColor(Color.parseColor("#363940"))
+                binding.tvTitle.visibility=View.INVISIBLE
+                binding.tvTitleOff.visibility=View.VISIBLE
+            }
+        }
 
         return binding.root
     }

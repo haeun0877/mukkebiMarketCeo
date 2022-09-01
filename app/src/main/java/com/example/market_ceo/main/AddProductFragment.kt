@@ -6,6 +6,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
+import android.text.TextUtils
 import android.text.TextWatcher
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -32,9 +33,8 @@ class AddProductFragment : Fragment() {
     ): View? {
         binding = FragmentAddProductBinding.inflate(inflater, container, false)
 
-        binding.ivAddImage.setOnClickListener {
-            navigatePhotos()
-        }
+        binding.ivAddImage.setOnClickListener { navigatePhotos() }
+        binding.tvEmptyImg.setOnClickListener { navigatePhotos() }
 
         val editFocusListener = EditFocus()
         binding.etOrigin.onFocusChangeListener = editFocusListener
@@ -83,10 +83,16 @@ class AddProductFragment : Fragment() {
                 if( selectedImageURI != null) {
                     imageUri = selectedImageURI
                     binding.ivAddImage.setImageURI(imageUri)
+                    binding.tvEmptyImg.visibility=View.GONE
+                    binding.ivAddImage.visibility=View.VISIBLE
                 }else {
+                    binding.tvEmptyImg.visibility=View.VISIBLE
+                    binding.ivAddImage.visibility=View.GONE
                     Toast.makeText(context,"사진을 가져오지 못했습니다",Toast.LENGTH_SHORT).show()
                 }
             } else -> {
+            binding.tvEmptyImg.visibility=View.VISIBLE
+            binding.ivAddImage.visibility=View.GONE
             Toast.makeText(context,"잘못된 접근입니다",Toast.LENGTH_SHORT).show()
         }
         }
