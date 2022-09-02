@@ -11,6 +11,7 @@ import androidx.viewpager.widget.ViewPager
 import com.example.market_ceo.R
 import com.example.market_ceo.databinding.FragmentOrderListBinding
 import com.example.market_ceo.main.adapter.OrderListPagerAdapter
+import com.example.market_ceo.main.dialog.DateSelectDialog
 import com.example.market_ceo.main.order_list_page.AllOrderListFragment
 import com.example.market_ceo.main.order_list_page.CancelOrderListFragment
 import com.example.market_ceo.main.order_list_page.SuccessOrderListFragment
@@ -30,6 +31,10 @@ class OrderListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentOrderListBinding.inflate(inflater, container, false)
+
+        binding.llDataSelect.setOnClickListener {
+            context?.let { context -> DateSelectDialog(context).dateSelectDialog() }
+        }
 
         var pagerAdapter = activity?.supportFragmentManager?.let { OrderListPagerAdapter(it, lifecycle) }
         binding.viewPager.adapter = pagerAdapter

@@ -57,10 +57,10 @@ class ManageFragment : Fragment() {
     private fun setList(){
         items.clear()
         items.apply {
-            add(ProductItem("서울식 순대국밥 곱배기(1인분)", "8,000", ""))
-            add(ProductItem("병천식 순대국밥(1인분)", "3,000", ""))
-            add(ProductItem("오징어 순대(2인분)", "15,000", ""))
-            add(ProductItem("미니 순대(1인분)", "5,000", ""))
+            add(ProductItem("서울식 순대국밥 곱배기(1인분)", "8,000", "", true, false))
+            add(ProductItem("병천식 순대국밥(1인분)", "3,000", "", true, false))
+            add(ProductItem("오징어 순대(2인분)", "15,000", "", true, false))
+            add(ProductItem("미니 순대(1인분)", "5,000", "", true, false))
         }
 
         adapter.items = items

@@ -12,6 +12,7 @@ import com.example.market_ceo.MainActivity
 import com.example.market_ceo.R
 import com.example.market_ceo.databinding.FragmentMainBinding
 import com.example.market_ceo.main.dialog.NewOrderDialog
+import com.example.market_ceo.main.dialog.NewOrderPopupDialog
 
 class MainFragment : Fragment() {
     lateinit var binding: FragmentMainBinding
@@ -62,7 +63,7 @@ class MainFragment : Fragment() {
                 mainActivity.setFragment(OrderListFragment.newInstance())
             }
             R.id.tv_logout -> {
-                context?.let { it1 -> NewOrderDialog(it1).newOrderDialogShow() }
+                context?.let { it1 -> NewOrderPopupDialog(it1).newOrderPopupDialogShow() }
             }
             R.id.tv_goods_manage -> {
                 mainActivity.setFragment(ManageFragment.newInstance())

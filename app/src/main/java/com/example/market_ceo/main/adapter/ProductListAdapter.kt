@@ -27,11 +27,15 @@ class ProductListAdapter (private val context: Context) : RecyclerView.Adapter<P
         private val tvPrice = view.findViewById<TextView>(R.id.tv_price)
         private val ivMove = view.findViewById<ImageView>(R.id.iv_move)
         private val switchSoldOut = view.findViewById<Switch>(R.id.switch_sold_out)
+        private val switchShow = view.findViewById<Switch>(R.id.switch_show)
 
         @SuppressLint("SetTextI18n", "ClickableViewAccessibility")
         fun bind(item: ProductItem){
             tvName.text = item.name
             tvPrice.text = "기준가격: "+item.price+"원"
+
+            switchShow.isChecked = item.show
+            switchSoldOut.isChecked = item.sold_out
 
             ivMove.setOnTouchListener { _, event ->
                 if (event.action == MotionEvent.ACTION_DOWN) {
@@ -42,12 +46,11 @@ class ProductListAdapter (private val context: Context) : RecyclerView.Adapter<P
 
             switchSoldOut.setOnCheckedChangeListener { _, isChecked ->
                 if(isChecked){
-                    SoldOutDialog(context).soldOutDialogShow()
-                }else{
-                    SoldOutDialog(context).soldOutDialogShow()
+                    if(switchShow.isChecked){
+                        SoldOutDialog(context).soldOutDialogShow(this@ProductListAdapter, item, position)
+                    }
                 }
             }
-
         }
     }
 
@@ -79,6 +82,11 @@ class ProductListAdapter (private val context: Context) : RecyclerView.Adapter<P
 
     override fun onItemSwiped(position: Int) {
         TODO("Not yet implemented")
+    }
+
+    fun setShowOnOff(position: Int){
+        items[position].show = false
+        notifyItemChanged(position)
     }
 
 }

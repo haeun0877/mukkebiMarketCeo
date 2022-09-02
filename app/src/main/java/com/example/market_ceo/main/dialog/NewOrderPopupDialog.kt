@@ -9,24 +9,13 @@ import android.view.Window
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.market_ceo.R
-import com.example.market_ceo.main.ManageFragment
-import com.example.market_ceo.main.OrderListFragment
 import com.example.market_ceo.main.adapter.DialogPriceAdapter
-import com.example.market_ceo.main.adapter.ProductListAdapter
-import com.example.market_ceo.main.item.ProductItem
 
-class SoldOutDialog(context : Context) {
+class NewOrderPopupDialog(context : Context) {
     private val dialog = Dialog(context)
     private val context = context
 
-    lateinit var productListAdapter: ProductListAdapter
-    lateinit var productItem: ProductItem
-    private var position = 0
-
-    fun soldOutDialogShow(adapter: ProductListAdapter, item: ProductItem, pos: Int){
-        productListAdapter = adapter
-        productItem = item
-        position = pos
+    fun newOrderPopupDialogShow(){
 
         setDialogSetting()
 
@@ -35,25 +24,25 @@ class SoldOutDialog(context : Context) {
 
     private fun setDialogSetting(){
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.dialog_sold_out)
+        dialog.setContentView(R.layout.dialog_new_order_popup)
 
         val window = dialog.window
         window?.setGravity(Gravity.CENTER)
         window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
 
-        val tvShowKeep = dialog.findViewById<TextView>(R.id.tv_show_keep)
-        val tvShowOnOff = dialog.findViewById<TextView>(R.id.tv_show_on_off)
-        tvShowKeep.setOnClickListener (mClick)
-        tvShowOnOff.setOnClickListener(mClick)
+        val tvOk = dialog.findViewById<TextView>(R.id.tv_ok)
+        val tvClose = dialog.findViewById<TextView>(R.id.tv_close)
+        tvOk.setOnClickListener(mClick)
+        tvClose.setOnClickListener(mClick)
     }
 
     private val mClick = View.OnClickListener {
         when(it.id){
-            R.id.tv_show_keep -> {
+            R.id.tv_ok ->{
+                NewOrderDialog(context).newOrderDialogShow()
                 dialog.dismiss()
             }
-            R.id.tv_show_on_off -> {
-                productListAdapter.setShowOnOff(position)
+            R.id.tv_close ->{
                 dialog.dismiss()
             }
         }
