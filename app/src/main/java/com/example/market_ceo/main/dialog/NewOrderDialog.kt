@@ -60,7 +60,11 @@ class NewOrderDialog(context : Context) {
         val gridLM = GridLayoutManager(context,3)
         rvPrice.layoutManager = gridLM
 
-        dialogAdapter = DialogPriceAdapter(context, this)
+        dialogAdapter = context?.let { DialogPriceAdapter(it, object: DialogPriceAdapter.PriceAdapterListener{
+            override fun setPrice(price:String){
+                setInputPrice(price)
+            }
+        })}
 
         dialog.findViewById<TextView>(R.id.tv_origin_korea).setOnClickListener(mClick)
         dialog.findViewById<TextView>(R.id.tv_origin_america).setOnClickListener(mClick)
@@ -107,7 +111,7 @@ class NewOrderDialog(context : Context) {
         }
     }
 
-    fun setPrice(inputPrice: String){
+    fun setInputPrice(inputPrice: String){
         dialog.findViewById<TextView>(R.id.tv_goods_price).setText(inputPrice)
         price = inputPrice
         checkAllInput()

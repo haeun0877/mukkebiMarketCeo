@@ -5,4 +5,10 @@
         <item name="android:textSize">24dp</item>
     </style>
 
+    <style name="CalenderViewCustom" parent="Theme.AppCompat">
+        <item name="colorAccent">@color/main_blue</item>
+        <item name="colorPrimary">@color/white</item>
+        <item name="android:textColorPrimary">@color/black</item>
+    </style>
+
 </resources>

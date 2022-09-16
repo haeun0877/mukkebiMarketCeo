@@ -8,12 +8,16 @@ import android.view.ViewGroup
 import android.view.Window
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.market_ceo.MainActivity
 import com.example.market_ceo.R
+import com.example.market_ceo.main.NewOrderFragment
 import com.example.market_ceo.main.adapter.DialogPriceAdapter
 
 class NewOrderPopupDialog(context : Context) {
     private val dialog = Dialog(context)
     private val context = context
+
+    lateinit var mainActivity:MainActivity
 
     fun newOrderPopupDialogShow(){
 
@@ -25,6 +29,8 @@ class NewOrderPopupDialog(context : Context) {
     private fun setDialogSetting(){
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(R.layout.dialog_new_order_popup)
+
+        mainActivity = context as MainActivity
 
         val window = dialog.window
         window?.setGravity(Gravity.CENTER)
@@ -39,7 +45,7 @@ class NewOrderPopupDialog(context : Context) {
     private val mClick = View.OnClickListener {
         when(it.id){
             R.id.tv_ok ->{
-                NewOrderDialog(context).newOrderDialogShow()
+                mainActivity.setFragment(NewOrderFragment.newInstance())
                 dialog.dismiss()
             }
             R.id.tv_close ->{

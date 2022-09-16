@@ -15,14 +15,15 @@ import com.example.market_ceo.R
 import com.example.market_ceo.main.dialog.NewOrderDialog
 import com.example.market_ceo.main.utils.Utils
 
-class DialogPriceAdapter (private val context: Context, dialog: NewOrderDialog) : RecyclerView.Adapter<DialogPriceAdapter.ViewHolder>() {
+class DialogPriceAdapter (private val context: Context, priceAdapterListener: PriceAdapterListener) : RecyclerView.Adapter<DialogPriceAdapter.ViewHolder>() {
 
     var items = mutableListOf<Int>()
-    val newOrderDialog = dialog
 
     var selectedPrice: String = ""
 
     var selectPos = -1
+
+    val listener = priceAdapterListener
 
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view){
         private val tvPrice: TextView = view.findViewById<TextView>(R.id.tv_price)
@@ -31,18 +32,20 @@ class DialogPriceAdapter (private val context: Context, dialog: NewOrderDialog) 
         fun bind(item: Int, position: Int){
             tvPrice.text = Utils.makePriceComma(item.toString())
 
-            clPrice.background=ContextCompat.getDrawable(context, R.drawable.box_round_10_f7f8fe)
-            tvPrice.setTextColor(Color.parseColor("#0537c8"))
+            clPrice.background=ContextCompat.getDrawable(context, R.drawable.box_round_10_f7f7f7)
+            tvPrice.setTextColor(Color.parseColor("#cccccc"))
 
             if(selectPos == position) {
                 selectedPrice = item.toString()
-                newOrderDialog.setPrice(selectedPrice)
+                if(listener!=null){
+                    listener.setPrice(selectedPrice)
+                }
 
                 clPrice.background=ContextCompat.getDrawable(context, R.drawable.box_round_10_0537c8)
                 tvPrice.setTextColor(Color.parseColor("#FFFFFF"))
             } else {
-                clPrice.background=ContextCompat.getDrawable(context, R.drawable.box_round_10_f7f8fe)
-                tvPrice.setTextColor(Color.parseColor("#0537c8"))
+                clPrice.background=ContextCompat.getDrawable(context, R.drawable.box_round_10_f7f7f7)
+                tvPrice.setTextColor(Color.parseColor("#cccccc"))
             }
         }
     }
@@ -66,6 +69,10 @@ class DialogPriceAdapter (private val context: Context, dialog: NewOrderDialog) 
 
     override fun getItemCount(): Int {
         return items.size
+    }
+
+    interface PriceAdapterListener{
+        fun setPrice(price:String)
     }
 
 }
