@@ -2,17 +2,15 @@ package com.example.market_ceo.main
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Toast
 import com.example.market_ceo.MainActivity
 import com.example.market_ceo.R
 import com.example.market_ceo.databinding.FragmentMainBinding
-import com.example.market_ceo.main.dialog.NewOrderDialog
-import com.example.market_ceo.main.dialog.NewOrderPopupDialog
+import com.example.market_ceo.dialog.NewOrderPopupDialog
 
 class MainFragment : Fragment() {
     lateinit var binding: FragmentMainBinding
@@ -66,7 +64,8 @@ class MainFragment : Fragment() {
                 context?.let { it1 -> NewOrderPopupDialog(it1).newOrderPopupDialogShow() }
             }
             R.id.tv_goods_manage -> {
-                mainActivity.setFragment(ManageFragment.newInstance())
+                Toast.makeText(context, "준비중입니다.", Toast.LENGTH_SHORT).show()
+//                mainActivity.setFragment(ManageFragment.newInstance())
             }
         }
     }

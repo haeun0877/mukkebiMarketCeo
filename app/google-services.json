@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "657504630471",
+    "project_id": "mukkebi",
+    "storage_bucket": "mukkebi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:657504630471:android:4fb2482a29c734ec8bb0e2",
+        "android_client_info": {
+          "package_name": "com.example.market_ceo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "657504630471-cpf46e843lgclcka4teovt2c3ppsus30.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.market_ceo",
+            "certificate_hash": "7789fa10d40e34db786c38d31a713fbe62663164"
+          }
+        },
+        {
+          "client_id": "657504630471-ssg92gcdrruftdn8m05ug5d8ins0p3t2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBs2EbN3Su38fU3HV0wC7bE6jklm__nlVU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "657504630471-ssg92gcdrruftdn8m05ug5d8ins0p3t2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

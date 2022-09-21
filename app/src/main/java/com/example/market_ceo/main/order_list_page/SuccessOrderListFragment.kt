@@ -5,14 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.market_ceo.R
 import com.example.market_ceo.databinding.FragmentSuccessOrderListBinding
-import com.example.market_ceo.main.adapter.OrderListAdapter
+import com.example.market_ceo.adapter.OrderListAdapter
 import com.example.market_ceo.main.item.OrderItem
-import com.example.market_ceo.main.utils.VerticalItemDecorator
+import com.example.market_ceo.utils.VerticalItemDecorator
 
 class SuccessOrderListFragment : Fragment() {
     lateinit var binding: FragmentSuccessOrderListBinding

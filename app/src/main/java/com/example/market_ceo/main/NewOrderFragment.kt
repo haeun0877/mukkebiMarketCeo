@@ -2,21 +2,17 @@ package com.example.market_ceo.main
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.market_ceo.R
-import com.example.market_ceo.databinding.FragmentManageBinding
 import com.example.market_ceo.databinding.FragmentNewOrderBinding
-import com.example.market_ceo.main.adapter.DialogPriceAdapter
-import com.example.market_ceo.main.utils.VerticalItemDecorator
+import com.example.market_ceo.adapter.DialogPriceAdapter
+import com.example.market_ceo.utils.VerticalItemDecorator
 
 class NewOrderFragment : Fragment() {
     lateinit var binding: FragmentNewOrderBinding

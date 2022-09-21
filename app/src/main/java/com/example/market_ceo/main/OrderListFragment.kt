@@ -2,20 +2,13 @@ package com.example.market_ceo.main
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.viewpager.widget.ViewPager
-import com.example.market_ceo.R
 import com.example.market_ceo.databinding.FragmentOrderListBinding
-import com.example.market_ceo.main.adapter.OrderListPagerAdapter
-import com.example.market_ceo.main.dialog.DateSelectDialog
-import com.example.market_ceo.main.order_list_page.AllOrderListFragment
-import com.example.market_ceo.main.order_list_page.CancelOrderListFragment
-import com.example.market_ceo.main.order_list_page.SuccessOrderListFragment
-import com.google.android.material.tabs.TabLayout
+import com.example.market_ceo.adapter.OrderListPagerAdapter
+import com.example.market_ceo.dialog.DateSelectDialog
 import com.google.android.material.tabs.TabLayoutMediator
 
 class OrderListFragment : Fragment() {

@@ -8,12 +8,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.market_ceo.MainActivity
-import com.example.market_ceo.R
 import com.example.market_ceo.databinding.FragmentManageBinding
-import com.example.market_ceo.main.adapter.ProductListAdapter
-import com.example.market_ceo.main.item.OrderItem
+import com.example.market_ceo.adapter.ProductListAdapter
 import com.example.market_ceo.main.item.ProductItem
-import com.example.market_ceo.main.utils.ItemTouchHelperCallback
+import com.example.market_ceo.utils.ItemTouchHelperCallback
 
 class ManageFragment : Fragment() {
     lateinit var binding: FragmentManageBinding
