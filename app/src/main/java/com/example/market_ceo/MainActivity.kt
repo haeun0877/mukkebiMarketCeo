@@ -8,13 +8,14 @@ import android.os.Bundle
 import android.provider.Settings
 import android.telephony.TelephonyManager
 import android.text.TextUtils
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.example.market_ceo.constant.Constant
 import com.example.market_ceo.data.ShareData
 import com.example.market_ceo.main.LoginFragment
+import com.example.market_ceo.main.MainFragment
+import com.example.market_ceo.member.MemberManager
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -22,29 +23,30 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val loginFrag = LoginFragment.newInstance()
-
-        supportFragmentManager
-            .beginTransaction()
-            .replace(
-                R.id.layout_fragment,
-                loginFrag,
-                loginFrag.tag
-            )
-            .commitAllowingStateLoss()
         ShareData.shared().init(this)
 
         //UUID 확인
         checkDeviceUUID()
+
+        MemberManager.getInstance().setMainActivity(this)
+        if (MemberManager.getInstance().autoLogin) {
+            //AccessToken 없을 경우 로그인 하지 않음
+            if (TextUtils.isEmpty(MemberManager.getInstance().accessId) ||
+                TextUtils.isEmpty(MemberManager.getInstance().accessToken)
+            ) {
+                setMainFragment(LoginFragment.newInstance())
+            } else {
+                MemberManager.getInstance().getUserInfo(this@MainActivity, null)
+            }
+        } else {
+            setMainFragment(LoginFragment.newInstance())
+        }
     }
 
     private fun checkDeviceUUID() {
-        Log.e("haeun","1")
         if (getUUIDFromPrefs()?.isEmpty() == true) {
-            Log.e("haeun","2")
             val uuid: String = getDeviceUUID()
             if (!TextUtils.isEmpty(uuid)) {
-                Log.e("haeun","3")
                 saveUUIDToPrefs(uuid)
             }
         }
@@ -107,6 +109,17 @@ class MainActivity : AppCompatActivity() {
         return preferences.getString(Constant.PREF_UUID, "")
     }
 
+    fun setMainFragment(newFragment: Fragment){
+        supportFragmentManager
+            .beginTransaction()
+            .replace(
+                R.id.layout_fragment,
+                newFragment,
+                newFragment.tag
+            )
+            .commitAllowingStateLoss()
+    }
+
     fun setFragment(newFragment: Fragment){
         supportFragmentManager
             .beginTransaction()
@@ -119,7 +132,7 @@ class MainActivity : AppCompatActivity() {
             .commitAllowingStateLoss()
     }
 
-    fun removeAllFragments(){
+    private fun removeAllFragments(){
         supportFragmentManager
             .popBackStack(0, 0)
     }

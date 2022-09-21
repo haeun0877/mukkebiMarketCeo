@@ -2,15 +2,17 @@ package com.example.market_ceo.main
 
 import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.example.market_ceo.MainActivity
 import com.example.market_ceo.R
+import com.example.market_ceo.constant.Constant
+import com.example.market_ceo.data.ShareData
 import com.example.market_ceo.databinding.FragmentMainBinding
-import com.example.market_ceo.dialog.NewOrderPopupDialog
+import com.example.market_ceo.member.MemberManager
 
 class MainFragment : Fragment() {
     lateinit var binding: FragmentMainBinding
@@ -61,7 +63,11 @@ class MainFragment : Fragment() {
                 mainActivity.setFragment(OrderListFragment.newInstance())
             }
             R.id.tv_logout -> {
-                context?.let { it1 -> NewOrderPopupDialog(it1).newOrderPopupDialogShow() }
+                val strUUID: String = ShareData.shared().getPfData(Constant.PREF_UUID)
+                MemberManager.getInstance().doUuidLogout(context, strUUID, true, null)
+
+
+//                context?.let { it1 -> NewOrderPopupDialog(it1).newOrderPopupDialogShow() }
             }
             R.id.tv_goods_manage -> {
                 Toast.makeText(context, "준비중입니다.", Toast.LENGTH_SHORT).show()

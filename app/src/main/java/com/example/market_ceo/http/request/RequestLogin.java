@@ -133,8 +133,6 @@ public class RequestLogin extends HttpApiRequest<JSONObject> {
         params.put("fcm_token", fcm_token);
         params = MemberManager.getInstance().setAccessInfo(params);
         params = MemberManager.getInstance().setCommonParamater(params);
-
-        Log.e("haeun","params: "+params);
         return new UrlEncodedContent(params);
     }
 

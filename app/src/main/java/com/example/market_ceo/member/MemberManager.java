@@ -24,6 +24,7 @@ import com.example.market_ceo.http.request.RequestMydeliveryList;
 import com.example.market_ceo.http.request.RequestShoplist;
 import com.example.market_ceo.http.request.RequestUserInfo;
 import com.example.market_ceo.http.request.Request_Device_Logout;
+import com.example.market_ceo.main.LoginFragment;
 import com.example.market_ceo.main.MainFragment;
 import com.example.market_ceo.utils.VersionChecker;
 import com.google.gson.Gson;
@@ -37,6 +38,7 @@ import java.util.Map;
 public class MemberManager {
 
     private static MemberManager m_instance;
+    private MainActivity mainActivity;
 
     private UserInfo userinfo;
     private DeliveryMyListItem deliveryinfo;
@@ -56,6 +58,10 @@ public class MemberManager {
             m_instance = new MemberManager();
         }
         return m_instance;
+    }
+
+    public void setMainActivity(MainActivity activity){
+        mainActivity = activity;
     }
 
     public void initInfo() {
@@ -261,6 +267,7 @@ public class MemberManager {
                     doShopList(context);
                     getDeliveryMainInfo(context, info);
                     Define.g_isLogin = true;
+                    mainActivity.setMainFragment(MainFragment.newInstance());
                 } else {
                     //__kisoojo__ 2018.03.08 result=error"시 "access_error" output이 있으면(값은 무관) result_text를 alert
                     if (result.equals("error") && !response.optString("access_error").isEmpty()) {
@@ -410,6 +417,7 @@ public class MemberManager {
                         setAutoLogin("0", "", "");
                         //MainActivity.removeFragmentBackStack(MainFragment.class.getSimpleName());
                         ShareData.shared().deletePfData("delivery_time");
+                        mainActivity.setMainFragment(LoginFragment.newInstance());
                         Toast.makeText(context, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
                     }
 
@@ -418,6 +426,7 @@ public class MemberManager {
                     }
                 } else {
                     setAutoLogin("0", "", "");
+                    mainActivity.setMainFragment(LoginFragment.newInstance());
                 }
             }
         }).setOnHttpResponseErrorListener(new Response.OnHttpResponseErrorListener() {
@@ -477,6 +486,7 @@ public class MemberManager {
 //                });
 
         setAutoLogin("0", "", "");
+        mainActivity.setFragmentRemoveAll(MainFragment.newInstance());
     }
 
     public interface LogoutListener {
