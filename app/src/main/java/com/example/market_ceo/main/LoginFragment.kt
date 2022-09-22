@@ -74,6 +74,7 @@ class LoginFragment : Fragment() {
         binding.tvSubmit.setOnClickListener { doVerifySendSms()}
         binding.tvPhoneLogin.setOnClickListener { doVerify() }
         binding.tvIdLogin.setOnClickListener { doIdLogin() }
+        binding.tvSearchIdPw.setOnClickListener { mainActivity.setFragment(FindIdFragment.newInstance()) }
     }
 
     private fun doIdLogin(){
@@ -148,7 +149,7 @@ class LoginFragment : Fragment() {
                         val strMessage = response.optString("result_text")
                         Toast.makeText(context, strMessage, Toast.LENGTH_SHORT).show()
                     }
-                }.setOnHttpResponseErrorListener { request, error ->
+                }.setOnHttpResponseErrorListener { _, error ->
                     Toast.makeText(context, error.message, Toast.LENGTH_SHORT).show()
                 }.send(context)
 

@@ -42,6 +42,8 @@ class MainFragment : Fragment() {
         binding.tvLogout.setOnClickListener(mClick)
         binding.tvGoodsManage.setOnClickListener(mClick)
 
+        binding.tvTextLeave.setOnClickListener { mainActivity.setFragment(LeaveFragment.newInstance()) }
+
         binding.mainSwitch.setOnCheckedChangeListener { _, isChecked ->
             if(isChecked){
                 binding.clTop.setBackgroundColor(Color.parseColor("#0537c8"))
